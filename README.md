@@ -11,7 +11,7 @@ First of all, you need to register on the [Sms.ir](https://sms.ir/).  Then, by e
 
 The best and easiest way to add the SmsIr library to your .NET project is to use the Nuget package manager.
 
-### [](https://github.com/twilio/twilio-csharp#with-visual-studio-ide)With Visual Studio IDE
+### With Visual Studio IDE
 
 From within Visual Studio, you can use the Nuget GUI to search for and install the IPE.SmsIR Nuget package. Or, as a shortcut, simply type the following command into the Package Manager Console:
 
@@ -19,7 +19,7 @@ From within Visual Studio, you can use the Nuget GUI to search for and install t
 Install-Package IPE.SmsIR
 ```
 
-### [](https://github.com/twilio/twilio-csharp#with-net-core-command-line-tools)With .NET Core Command Line Tools
+### With .NET Core Command Line Tools
 
 If you are building with the .NET Core command line tools, then you can run the following command from within your project directory:
 
