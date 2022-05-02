@@ -2,13 +2,13 @@
 {
     public class MessageReportResult
     {
-        public int MessageId { get; }
-        public long Mobile { get; }
-        public string MessageText { get; }
-        public int SendDateTime { get; }
-        public long LineNumber { get; }
-        public decimal Cost { get; }
-        public byte? DeliveryState { get; }
-        public int? DeliveryDateTime { get; }
+        public int MessageId { get; set; }
+        public long Mobile { get; set; }
+        public string MessageText { get; set; }
+        public int SendDateTime { get; set; }
+        public long LineNumber { get; set; }
+        public decimal Cost { get; set; }
+        public byte? DeliveryState { get; set; }
+        public int? DeliveryDateTime { get; set; }
     }
 }

@@ -2,7 +2,7 @@
 {
     public class RemoveScheduledMessagesResult
     {
-        public decimal ReturnedCreditCount { get; }
-        public int SmsCount { get; }
+        public decimal ReturnedCreditCount { get; set; }
+        public int SmsCount { get; set; }
     }
 }
