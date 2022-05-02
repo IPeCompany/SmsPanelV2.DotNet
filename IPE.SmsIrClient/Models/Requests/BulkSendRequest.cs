@@ -2,7 +2,7 @@
 {
     internal class BulkSendRequest
     {
-        internal BulkSendRequest(long lineNumber, string messageText, string[] mobiles, int? sendDateTime)
+        public BulkSendRequest(long lineNumber, string messageText, string[] mobiles, int? sendDateTime)
         {
             LineNumber = lineNumber;
             MessageText = messageText;
@@ -10,9 +10,9 @@
             SendDateTime = sendDateTime;
         }
 
-        internal long LineNumber { get; set; }
-        internal string MessageText { get; set; }
-        internal string[] Mobiles { get; set; }
-        internal int? SendDateTime { get; set; }
+        public long LineNumber { get; set; }
+        public string MessageText { get; set; }
+        public string[] Mobiles { get; set; }
+        public int? SendDateTime { get; set; }
     }
 }

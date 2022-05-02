@@ -2,17 +2,17 @@
 {
     internal class VerifySendRequest
     {
-        internal VerifySendRequest(string mobile, int templateId, VerifySendParameter[] parameters)
+        public VerifySendRequest(string mobile, int templateId, VerifySendParameter[] parameters)
         {
             Mobile = mobile;
             TemplateId = templateId;
             Parameters = parameters;
         }
 
-        internal string Mobile { get; set; }
+        public string Mobile { get; set; }
 
-        internal int TemplateId { get; set; }
+        public int TemplateId { get; set; }
 
-        internal VerifySendParameter[] Parameters { get; set; }
+        public VerifySendParameter[] Parameters { get; set; }
     }
 }
