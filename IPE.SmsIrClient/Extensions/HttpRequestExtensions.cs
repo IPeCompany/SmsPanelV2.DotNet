@@ -48,16 +48,17 @@ namespace IPE.SmsIrClient.Extensions
         private static async Task HandleUnsuccessfulResponse(HttpResponseMessage response)
         {
             SmsIrResult baseResponse = await response.Content.ReadFromJsonAsync<SmsIrResult>();
+            int statusCode = (int)response.StatusCode;
 
-            switch (response.StatusCode)
+            switch (statusCode)
             {
-                case HttpStatusCode.Unauthorized:
+                case 401:
                     throw new UnauthorizedException(baseResponse.Status, baseResponse.Message);
-                case HttpStatusCode.BadRequest:
+                case 400:
                     throw new LogicalException(baseResponse.Status, baseResponse.Message);
-                case HttpStatusCode.TooManyRequests:
+                case 429:
                     throw new TooManyRequestException(baseResponse.Status, baseResponse.Message);
-                case HttpStatusCode.InternalServerError:
+                case 500:
                     throw new UnexpectedException(baseResponse.Status, baseResponse.Message);
                 default:
                     throw new InvalidOperationException($"something went wrong, httpStatus code: {response.StatusCode}, message: {response.RequestMessage}, please contact support team.");
