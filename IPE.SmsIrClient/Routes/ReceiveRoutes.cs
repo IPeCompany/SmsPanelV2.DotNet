@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace IPE.SmsIr.Routes
+namespace IPE.SmsIrClient.Routes
 {
     internal static class ReceiveRoutes
     {

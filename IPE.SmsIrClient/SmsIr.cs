@@ -1,12 +1,12 @@
-﻿using IPE.SmsIr.Extensions;
-using IPE.SmsIr.Models.Requests;
-using IPE.SmsIr.Models.Results;
-using IPE.SmsIr.Routes;
+﻿using IPE.SmsIrClient.Extensions;
+using IPE.SmsIrClient.Models.Requests;
+using IPE.SmsIrClient.Models.Results;
+using IPE.SmsIrClient.Routes;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace IPE.SmsIr
+namespace IPE.SmsIrClient
 {
     public class SmsIr
     {

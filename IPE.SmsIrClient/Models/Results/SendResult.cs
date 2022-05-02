@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace IPE.SmsIr.Models.Results
+namespace IPE.SmsIrClient.Models.Results
 {
     public class SendResult
     {

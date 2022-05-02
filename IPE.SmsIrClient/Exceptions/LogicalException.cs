@@ -1,4 +1,4 @@
-﻿namespace IPE.SmsIr.Exceptions
+﻿namespace IPE.SmsIrClient.Exceptions
 {
     internal class LogicalException : SmsIrException
     {

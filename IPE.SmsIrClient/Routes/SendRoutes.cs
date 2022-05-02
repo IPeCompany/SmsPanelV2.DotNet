@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace IPE.SmsIr.Routes
+namespace IPE.SmsIrClient.Routes
 {
     internal static class SendRoutes
     {

@@ -1,4 +1,4 @@
-﻿namespace IPE.SmsIr.Models.Requests
+﻿namespace IPE.SmsIrClient.Models.Requests
 {
     internal class VerifySendRequest
     {
