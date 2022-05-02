@@ -16,6 +16,13 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Include="C:\Users\IPe\Desktop\smsir-nuget-logo.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="System.Net.Http.Json" Version="6.0.0" />
 	</ItemGroup>
 

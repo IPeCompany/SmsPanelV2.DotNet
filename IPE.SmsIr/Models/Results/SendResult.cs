@@ -4,8 +4,8 @@ namespace IPE.SmsIr.Models.Results
 {
     public class SendResult
     {
-        public Guid PackId { get; set; }
-        public int?[] MessageIds { get; set; }
-        public decimal Cost { get; set; }
+        public Guid PackId { get; }
+        public int?[] MessageIds { get; }
+        public decimal Cost { get; }
     }
 }

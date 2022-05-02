@@ -1,8 +1,8 @@
 ﻿namespace IPE.SmsIr.Exceptions
 {
-    public class UnexpectedException : SmsIrException
+    internal class UnexpectedException : SmsIrException
     {
-        public UnexpectedException(byte status, string message)
+        internal UnexpectedException(byte status, string message)
             : base(status, message)
         {
         }

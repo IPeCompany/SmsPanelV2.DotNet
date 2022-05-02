@@ -1,8 +1,8 @@
 ﻿namespace IPE.SmsIr.Models.Requests
 {
-    public class BulkSendRequest
+    internal class BulkSendRequest
     {
-        public BulkSendRequest(long lineNumber, string messageText, string[] mobiles, int? sendDateTime)
+        internal BulkSendRequest(long lineNumber, string messageText, string[] mobiles, int? sendDateTime)
         {
             LineNumber = lineNumber;
             MessageText = messageText;
@@ -10,9 +10,9 @@
             SendDateTime = sendDateTime;
         }
 
-        public long LineNumber { get; set; }
-        public string MessageText { get; set; }
-        public string[] Mobiles { get; set; }
-        public int? SendDateTime { get; set; }
+        internal long LineNumber { get; set; }
+        internal string MessageText { get; set; }
+        internal string[] Mobiles { get; set; }
+        internal int? SendDateTime { get; set; }
     }
 }

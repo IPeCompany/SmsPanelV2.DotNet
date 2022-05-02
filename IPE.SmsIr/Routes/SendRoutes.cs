@@ -2,14 +2,14 @@
 
 namespace IPE.SmsIr.Routes
 {
-    public static class SendRoutes
+    internal static class SendRoutes
     {
-        public static string BulkSendRoute() => "send/bulk";
+        internal static string BulkSendRoute() => "send/bulk";
 
-        public static string LikeToLikeSendRoute() => "send/likeTolike";
+        internal static string LikeToLikeSendRoute() => "send/likeTolike";
 
-        public static string RemoveScheduledMessagesRoute(Guid packId) => $"send/scheduled/{packId}";
+        internal static string RemoveScheduledMessagesRoute(Guid packId) => $"send/scheduled/{packId}";
 
-        public static string VerifySendRoute() => "send/verify";
+        internal static string VerifySendRoute() => "send/verify";
     }
 }

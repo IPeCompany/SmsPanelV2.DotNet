@@ -2,12 +2,12 @@
 {
     public class SmsIrResult
     {
-        public byte Status { get; set; }
-        public string Message { get; set; }
+        public byte Status { get; }
+        public string Message { get; }
     }
 
     public class SmsIrResult<TData> : SmsIrResult
     {
-        public TData Data { get; set; }
+        public TData Data { get; }
     }
 }

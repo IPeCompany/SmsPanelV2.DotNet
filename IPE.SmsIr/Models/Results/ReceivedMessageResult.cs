@@ -2,9 +2,9 @@
 {
     public class ReceivedMessageResult
     {
-        public string MessageText { get; set; }
-        public long Number { get; set; }
-        public long Mobile { get; set; }
-        public int ReceivedDateTime { get; set; }
+        public string MessageText { get; }
+        public long Number { get; }
+        public long Mobile { get; }
+        public int ReceivedDateTime { get; }
     }
 }

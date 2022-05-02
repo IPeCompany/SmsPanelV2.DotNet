@@ -1,7 +1,7 @@
 ﻿namespace IPE.SmsIr.Routes
 {
-    public static class CreditRoutes
+    internal static class CreditRoutes
     {
-        public static string GetCreditRoute() => "credit";
+        internal static string GetCreditRoute() => "credit";
     }
 }

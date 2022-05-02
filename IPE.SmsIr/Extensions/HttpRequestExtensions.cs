@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace IPE.SmsIr.Extensions
 {
-    public static class HttpRequestExtensions
+    internal static class HttpRequestExtensions
     {
         internal static async Task<SmsIrResult<TResult>> GetRequestAsync<TResult>(this HttpClient httpClient, string requestUri)
         {
