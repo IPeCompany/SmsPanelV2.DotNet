@@ -2,7 +2,7 @@
 {
     public class VerifySendResult
     {
-        public int MessageId { get; }
-        public decimal Cost { get; }
+        public int MessageId { get; set; }
+        public decimal Cost { get; set; }
     }
 }
