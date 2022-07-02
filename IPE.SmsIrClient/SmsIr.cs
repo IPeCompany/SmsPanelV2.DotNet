@@ -39,12 +39,12 @@ namespace IPE.SmsIrClient
         public SmsIrResult<long[]> GetLines() =>
             GetLinesAsync().GetAwaiter().GetResult();
 
-        public async Task<SmsIrResult<ReceivedMessageResult[]>> GetLatestReceivesAsync(int? count = 100)
+        public async Task<SmsIrResult<ReceivedMessageResult[]>> GetLatestReceivesAsync(int count = 100)
         {
-            return await _httpClient.GetRequestAsync<ReceivedMessageResult[]>(ReceiveRoutes.GetLatestReceivesRoute(count.Value));
+            return await _httpClient.GetRequestAsync<ReceivedMessageResult[]>(ReceiveRoutes.GetLatestReceivesRoute(count));
         }
 
-        public SmsIrResult<ReceivedMessageResult[]> GetLatestReceives(int? count = 100) =>
+        public SmsIrResult<ReceivedMessageResult[]> GetLatestReceives(int count = 100) =>
             GetLatestReceivesAsync(count).GetAwaiter().GetResult();
 
         public async Task<SmsIrResult<ReceivedMessageResult[]>> GetLiveReceivesAsync(int pageNumber = 1, int pageSize = 100)
