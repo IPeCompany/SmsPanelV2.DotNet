@@ -3,12 +3,12 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<PackageId>IPE.SmsIr</PackageId>
-		<Version>1.0.4</Version>
+		<Version>1.0.5</Version>
 		<Authors>IPDev</Authors>
 		<Company>IPE</Company>
 		<Copyright></Copyright>
 		<Description>A cross-platform library for the sms.ir provider, written in C#</Description>
-		<PackageIcon>smsir-nuget-logo.png</PackageIcon>
+		<PackageIcon>smsir-logo.png</PackageIcon>
 		<RepositoryUrl>https://github.com/IPeCompany/SmsPanelV2.dotNet</RepositoryUrl>
 		<PackageTags>sms, sms.ir, smsir,send sms, dotnet sms, c# sms, send message, message, receive message, receive</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
@@ -16,10 +16,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="C:\Users\IPe\Desktop\smsir-nuget-logo.png">
-			<Pack>True</Pack>
-			<PackagePath>\</PackagePath>
-		</None>
+	  <None Include="C:\Users\IPE\Desktop\smsir-logo.png">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
 	</ItemGroup>
 
 	<ItemGroup>
