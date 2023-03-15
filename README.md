@@ -35,7 +35,7 @@ SmsIr smsIr = new SmsIr("YOUR API KEY");
 
 var bulkSendResult = await smsIr.BulkSendAsync(95007079000006, "your text message", new string[] { "9120000000" });
 
-var verificationSendResult = await smsIr.VerifySendAsync("9120000000", 100000, new VerifySendParameter[] { new("Code", "12345") });
+var verificationSendResult = await smsIr.VerifySendAsync("9120000000", 100000, new VerifySendParameter[] { new VerifySendParameter("Code", "12345") });
 
 ```
 
