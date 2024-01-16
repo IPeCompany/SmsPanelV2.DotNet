@@ -28,7 +28,10 @@ dotnet add package IPE.SmsIR
 ```
 
 ## Usage
-The examples below show how to initiate SmsIr helper class and send SMS message using the SmsIr .NET helper library:
+
+The examples below show how to initiate SmsIr helper class and send SMS message using the SmsIr .NET helper library.
+
+We also provide [an ASP.NET Core sample project](https://github.com/IPeCompany/SmsPanelV2.DotNetCore.Samples) that explains each example in more detail.
 
 * [Quick Start](#quick-start)
 * [Sends](#sends)
