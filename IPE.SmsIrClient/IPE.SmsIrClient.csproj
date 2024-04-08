@@ -3,7 +3,7 @@
 	<PropertyGroup>
 		<TargetFramework>netstandard2.0</TargetFramework>
 		<PackageId>IPE.SmsIr</PackageId>
-		<Version>1.0.5</Version>
+		<Version>1.0.6</Version>
 		<Authors>IPDev</Authors>
 		<Company>IPE</Company>
 		<Copyright></Copyright>
@@ -16,10 +16,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Include="C:\Users\IPE\Desktop\smsir-logo.png">
-	    <Pack>True</Pack>
-	    <PackagePath>\</PackagePath>
-	  </None>
+		<None Include="..\smsir-logo.png">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
 	</ItemGroup>
 
 	<ItemGroup>
