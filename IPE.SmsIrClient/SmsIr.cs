@@ -29,7 +29,7 @@ namespace IPE.SmsIrClient
         }
 
         public SmsIrResult<decimal> GetCredit() =>
-            GetCreditAsync().GetAwaiter().GetResult();
+            _httpClient.GetRequest<decimal>(CreditRoutes.GetCreditRoute());
 
         public async Task<SmsIrResult<long[]>> GetLinesAsync()
         {
@@ -37,7 +37,7 @@ namespace IPE.SmsIrClient
         }
 
         public SmsIrResult<long[]> GetLines() =>
-            GetLinesAsync().GetAwaiter().GetResult();
+             _httpClient.GetRequest<long[]>(LineRoutes.GetLinesRoute());
 
         public async Task<SmsIrResult<ReceivedMessageResult[]>> GetLatestReceivesAsync(int count = 100)
         {
@@ -45,7 +45,7 @@ namespace IPE.SmsIrClient
         }
 
         public SmsIrResult<ReceivedMessageResult[]> GetLatestReceives(int count = 100) =>
-            GetLatestReceivesAsync(count).GetAwaiter().GetResult();
+            _httpClient.GetRequest<ReceivedMessageResult[]>(ReceiveRoutes.GetLatestReceivesRoute(count));
 
         public async Task<SmsIrResult<ReceivedMessageResult[]>> GetLiveReceivesAsync(int pageNumber = 1, int pageSize = 100)
         {
@@ -53,7 +53,7 @@ namespace IPE.SmsIrClient
         }
 
         public SmsIrResult<ReceivedMessageResult[]> GetLiveReceives(int pageNumber = 1, int pageSize = 100) =>
-            GetLiveReceivesAsync(pageNumber, pageSize).GetAwaiter().GetResult();
+            _httpClient.GetRequest<ReceivedMessageResult[]>(ReceiveRoutes.GetLiveReceivesRoute(pageNumber, pageSize));
 
         public async Task<SmsIrResult<ReceivedMessageResult[]>> GetArchivedReceivesAsync(int pageNumber = 1, int pageSize = 100, int? fromDate = null, int? toDate = null)
         {
@@ -61,7 +61,7 @@ namespace IPE.SmsIrClient
         }
 
         public SmsIrResult<ReceivedMessageResult[]> GetArchivedReceives(int pageNumber = 1, int pageSize = 100, int? fromDate = null, int? toDate = null) =>
-            GetArchivedReceivesAsync(pageNumber, pageSize, fromDate, toDate).GetAwaiter().GetResult();
+            _httpClient.GetRequest<ReceivedMessageResult[]>(ReceiveRoutes.GetArchivedReceivesRoute(pageNumber, pageSize, fromDate, toDate));
 
         public async Task<SmsIrResult<SendResult>> BulkSendAsync(long lineNumber, string messageText, string[] mobiles, int? sendDateTime = null)
         {
@@ -70,8 +70,12 @@ namespace IPE.SmsIrClient
             return await _httpClient.PostRequestAsync<SendResult>(SendRoutes.BulkSendRoute(), bulkSendRequest);
         }
 
-        public SmsIrResult<SendResult> BulkSend(long lineNumber, string messageText, string[] mobiles, int? sendDateTime = null) =>
-            BulkSendAsync(lineNumber, messageText, mobiles, sendDateTime).GetAwaiter().GetResult();
+        public SmsIrResult<SendResult> BulkSend(long lineNumber, string messageText, string[] mobiles, int? sendDateTime = null)
+        {
+            BulkSendRequest bulkSendRequest = new BulkSendRequest(lineNumber, messageText, mobiles, sendDateTime);
+
+            return _httpClient.PostRequest<SendResult>(SendRoutes.BulkSendRoute(), bulkSendRequest);
+        }
 
         public async Task<SmsIrResult<SendResult>> LikeToLikeSendAsync(long lineNumber, string[] messageTexts, string[] mobiles, int? sendDateTime = null)
         {
@@ -80,8 +84,12 @@ namespace IPE.SmsIrClient
             return await _httpClient.PostRequestAsync<SendResult>(SendRoutes.LikeToLikeSendRoute(), likeToLikeSendRequest);
         }
 
-        public SmsIrResult<SendResult> LikeToLikeSend(long lineNumber, string[] messageTexts, string[] mobiles, int? sendDateTime = null) =>
-            LikeToLikeSendAsync(lineNumber, messageTexts, mobiles, sendDateTime).GetAwaiter().GetResult();
+        public SmsIrResult<SendResult> LikeToLikeSend(long lineNumber, string[] messageTexts, string[] mobiles, int? sendDateTime = null)
+        {
+            LikeToLikeSendRequest likeToLikeSendRequest = new LikeToLikeSendRequest(lineNumber, messageTexts, mobiles, sendDateTime);
+
+            return _httpClient.PostRequest<SendResult>(SendRoutes.LikeToLikeSendRoute(), likeToLikeSendRequest);
+        }
 
         public async Task<SmsIrResult<RemoveScheduledMessagesResult>> RemoveScheduledMessagesAsync(Guid packId)
         {
@@ -89,7 +97,7 @@ namespace IPE.SmsIrClient
         }
 
         public SmsIrResult<RemoveScheduledMessagesResult> RemoveScheduledMessages(Guid packId) =>
-            RemoveScheduledMessagesAsync(packId).GetAwaiter().GetResult();
+            _httpClient.DeleteRequest<RemoveScheduledMessagesResult>(SendRoutes.RemoveScheduledMessagesRoute(packId));
 
         public async Task<SmsIrResult<VerifySendResult>> VerifySendAsync(string mobile, int templateId, VerifySendParameter[] parameters)
         {
@@ -98,8 +106,12 @@ namespace IPE.SmsIrClient
             return await _httpClient.PostRequestAsync<VerifySendResult>(SendRoutes.VerifySendRoute(), verifySendRequest);
         }
 
-        public SmsIrResult<VerifySendResult> VerifySend(string mobile, int templateId, VerifySendParameter[] parameters) =>
-            VerifySendAsync(mobile, templateId, parameters).GetAwaiter().GetResult();
+        public SmsIrResult<VerifySendResult> VerifySend(string mobile, int templateId, VerifySendParameter[] parameters)
+        {
+            VerifySendRequest verifySendRequest = new VerifySendRequest(mobile, templateId, parameters);
+
+            return _httpClient.PostRequest<VerifySendResult>(SendRoutes.VerifySendRoute(), verifySendRequest);
+        }
 
         public async Task<SmsIrResult<MessageReportResult>> GetReportAsync(int messageId)
         {
@@ -107,7 +119,7 @@ namespace IPE.SmsIrClient
         }
 
         public SmsIrResult<MessageReportResult> GetReport(int messageId) =>
-            GetReportAsync(messageId).GetAwaiter().GetResult();
+            _httpClient.GetRequest<MessageReportResult>(ReportRoutes.GetSingleMessageReportRoute(messageId));
 
         public async Task<SmsIrResult<MessageReportResult[]>> GetReportAsync(Guid packId)
         {
@@ -115,7 +127,7 @@ namespace IPE.SmsIrClient
         }
 
         public SmsIrResult<MessageReportResult[]> GetReport(Guid packId) =>
-            GetReportAsync(packId).GetAwaiter().GetResult();
+            _httpClient.GetRequest<MessageReportResult[]>(ReportRoutes.GetPackReportRoute(packId));
 
         public async Task<SmsIrResult<MessageReportResult[]>> GetLiveReportAsync(int pageNumber = 1, int pageSize = 100)
         {
@@ -123,7 +135,7 @@ namespace IPE.SmsIrClient
         }
 
         public SmsIrResult<MessageReportResult[]> GetLiveReport(int pageNumber = 1, int pageSize = 100) =>
-            GetLiveReportAsync(pageNumber, pageSize).GetAwaiter().GetResult();
+            _httpClient.GetRequest<MessageReportResult[]>(ReportRoutes.GetLiveReportRoute(pageNumber, pageSize));
 
         public async Task<SmsIrResult<MessageReportResult[]>> GetArchivedReportAsync(int pageNumber = 1, int pageSize = 100, int? fromDate = null, int? toDate = null)
         {
@@ -131,7 +143,7 @@ namespace IPE.SmsIrClient
         }
 
         public SmsIrResult<MessageReportResult[]> GetArchivedReport(int pageNumber = 1, int pageSize = 100, int? fromDate = null, int? toDate = null) =>
-            GetArchivedReportAsync(pageNumber, pageSize, fromDate, toDate).GetAwaiter().GetResult();
+            _httpClient.GetRequest<MessageReportResult[]>(ReportRoutes.GetArchivedReportRoute(pageNumber, pageSize, fromDate, toDate));
 
         public async Task<SmsIrResult<PackResult[]>> GetSendPacksAsync(int pageNumber = 1, int pageSize = 100)
         {
@@ -139,6 +151,6 @@ namespace IPE.SmsIrClient
         }
 
         public SmsIrResult<PackResult[]> GetSendPacks(int pageNumber = 1, int pageSize = 100) =>
-            GetSendPacksAsync(pageNumber, pageSize).GetAwaiter().GetResult();
+            _httpClient.GetRequest<PackResult[]>(ReportRoutes.GetSendPacksRoute(pageNumber, pageSize));
     }
 }

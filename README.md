@@ -1,6 +1,6 @@
 
 # SMS.IR .NET SDK         
-[![NuGet](https://img.shields.io/badge/nuget-v1.1.6-blue?logo=nuget)](https://www.nuget.org/packages/IPE.SmsIr)
+[![NuGet](https://img.shields.io/badge/nuget-v1.1.7-blue?logo=nuget)](https://www.nuget.org/packages/IPE.SmsIr)
 [![NuGet](https://img.shields.io/badge/supported_.net_core_versions->=_v2.0-4CAF50?logo=.net)](https://www.nuget.org/packages/IPE.SmsIr#supportedframeworks-body-tab)
 [![NuGet](https://img.shields.io/badge/supported_.net_framework_versions->=_v4.6.1-4CAF50?logo=.net)](https://www.nuget.org/packages/IPE.SmsIr#supportedframeworks-body-tab)
 
