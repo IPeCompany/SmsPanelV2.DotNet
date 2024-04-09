@@ -47,13 +47,13 @@ namespace IPE.SmsIrClient
         public SmsIrResult<ReceivedMessageResult[]> GetLatestReceives(int count = 100) =>
             _httpClient.GetRequest<ReceivedMessageResult[]>(ReceiveRoutes.GetLatestReceivesRoute(count));
 
-        public async Task<SmsIrResult<ReceivedMessageResult[]>> GetLiveReceivesAsync(int pageNumber = 1, int pageSize = 100)
+        public async Task<SmsIrResult<ReceivedMessageResult[]>> GetLiveReceivesAsync(int pageNumber = 1, int pageSize = 100, bool sortByNewest = false)
         {
-            return await _httpClient.GetRequestAsync<ReceivedMessageResult[]>(ReceiveRoutes.GetLiveReceivesRoute(pageNumber, pageSize));
+            return await _httpClient.GetRequestAsync<ReceivedMessageResult[]>(ReceiveRoutes.GetLiveReceivesRoute(pageNumber, pageSize, sortByNewest));
         }
 
-        public SmsIrResult<ReceivedMessageResult[]> GetLiveReceives(int pageNumber = 1, int pageSize = 100) =>
-            _httpClient.GetRequest<ReceivedMessageResult[]>(ReceiveRoutes.GetLiveReceivesRoute(pageNumber, pageSize));
+        public SmsIrResult<ReceivedMessageResult[]> GetLiveReceives(int pageNumber = 1, int pageSize = 100, bool sortByNewest = false) =>
+            _httpClient.GetRequest<ReceivedMessageResult[]>(ReceiveRoutes.GetLiveReceivesRoute(pageNumber, pageSize, sortByNewest));
 
         public async Task<SmsIrResult<ReceivedMessageResult[]>> GetArchivedReceivesAsync(int pageNumber = 1, int pageSize = 100, int? fromDate = null, int? toDate = null)
         {
