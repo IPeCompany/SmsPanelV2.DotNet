@@ -13,9 +13,14 @@
 		<PackageTags>sms, sms.ir, smsir,send sms, dotnet sms, c# sms, send message, message, receive message, receive</PackageTags>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageProjectUrl>https://sms.ir/</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Include="..\README.md">
+		  <Pack>True</Pack>
+		  <PackagePath>\</PackagePath>
+		</None>
 		<None Include="..\smsir-logo.png">
 			<Pack>True</Pack>
 			<PackagePath>\</PackagePath>
