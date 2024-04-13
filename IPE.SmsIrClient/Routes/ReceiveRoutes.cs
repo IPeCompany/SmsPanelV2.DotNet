@@ -6,7 +6,8 @@ namespace IPE.SmsIrClient.Routes
     {
         internal static string GetLatestReceivesRoute(int count) => $"receive/latest?count={count}";
 
-        internal static string GetLiveReceivesRoute(int pageNumber, int pageSize) => $"receive/live?pageNumber={pageNumber}&pageSize={pageSize}";
+        internal static string GetLiveReceivesRoute(int pageNumber, int pageSize, bool sortByNewest)
+            => $"receive/live?pageNumber={pageNumber}&pageSize={pageSize}&sortByNewest={sortByNewest}";
 
         internal static string GetArchivedReceivesRoute(int pageNumber, int pageSize, int? fromDate, int? toDate)
         {
